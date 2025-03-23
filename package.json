@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix search-server && npm install --prefix search-client && npm run build --prefix search-client",
-    "start": "npm run start --backend search-server"
+    "render-postbuild": "npm install --prefix search-client && cd /opt/render/project/src/search-client && npm run build",
+    "install": "npm --prefix search-server install search-server && npm --prefix search-client install search-client",
+    "dev:search-server": "npm install --prefix search-server start",
+    "dev:search-client": "npm install --prefix search-client start",
+    "sequelize": "npm run --prefix search-server sequelize",
+    "sequelize-cli": "npm run --prefix search-server sequelize-cli",
+    "start": "npm start --prefix search-server",
+    "build": "npm run build --prefix search-server"
   },
   "keywords": [],
   "author": "",
