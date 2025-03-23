@@ -8,7 +8,10 @@ const MyComponent = () => {
   const baseurl =
     import.meta.env.MODE === "development"
       ? "http://localhost:8080/api"
-      : "/api";
+      : `${window.location.origin}/api`;
+
+  var url = window.location.origin;
+  console.log("url", url);
 
   console.log("baseurl", baseurl);
   console.log("inputValue", inputValue);
