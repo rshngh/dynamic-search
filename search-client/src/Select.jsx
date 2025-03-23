@@ -10,6 +10,9 @@ const MyComponent = () => {
       ? "http://localhost:8080/api"
       : "/api";
 
+  console.log("baseurl", baseurl);
+  console.log("inputValue", inputValue);
+
   const handleChange = (option) => {
     setSelectedOption(option);
     console.log(`Option selected:`, option);
@@ -21,12 +24,12 @@ const MyComponent = () => {
     return inputValue;
   };
 
-  const loadOptions = (inputValue) => {
-    return fetch(`${baseurl}/cities/city?search=${inputValue}`)
-      .then((response) => response.json())
-      .then((data) =>
-        data.map((city) => ({ label: city.name, value: city.name }))
-      );
+  const loadOptions = async (inputValue) => {
+    const response = await fetch(`${baseurl}/cities/city?search=${inputValue}`);
+
+    const data = await response.json();
+    console.log("data", data);
+    return data.map((city) => ({ label: city.name, value: city.name }));
   };
 
   return (

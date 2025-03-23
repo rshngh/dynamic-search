@@ -10,6 +10,7 @@ router.get("/city", async (req, res) => {
     const cities = await City.find({
       name: { $regex: search, $options: "i" },
     });
+    console.log("cities", cities);
     res.status(200).json(cities);
   } catch (error) {
     console.log("error in city router", err);
