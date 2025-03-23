@@ -1,0 +1,13 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix search-server && npm install --prefix search-client && npm run build --prefix search-client",
+    "start": "npm run start --backend search-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
